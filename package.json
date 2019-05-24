@@ -1,0 +1,11 @@
+{
+    "scripts": {
+        "start": "node main.js",
+        "dev": "nodemon main.js"
+    },
+    "dependencies": {
+        "gamepad": "^1.6.0",
+        "motor-hat": "^2.0.6",
+        "nodemon": "^1.18.11"
+    }
+}

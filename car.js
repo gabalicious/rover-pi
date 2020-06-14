@@ -45,16 +45,19 @@ module.exports = class Car {
     updateMotorState() {
 
             let { direction } = this.acceleration;
-            let directions = [direction, direction, direction, direction]
-            this.updateMotorProperties('direction', directions);
+            // let directions = [direction, direction, direction, direction]
+            //             this.updateMotorProperties('direction', directions);
+
+            this.motors[0].directions = direction;
+            this.motors[1].directions = direction;
+            this.motors[2].directions = direction;
+            this.motors[3].directions = direction;
 
             let XY = `${this.xAxis}${this.yAxis}`;
             let sharpTurnY = `${this.sharpTurn.join()}${this.yAxis}`;
             // fwd + noturn
-            console.log('xAxis', this.xAxis);
-            console.log('yAxis', this.yAxis);
 
-            console.log(this.acceleration);
+
 
             if (XY === '01') {
                 this.updateMotorProperties();
@@ -62,29 +65,50 @@ module.exports = class Car {
 
             // back + noturn
             if (XY === '0-1') {
-                this.updateMotorProperties();
+                // this.updateMotorProperties();
+                this.motors[0].speed = 30;
+                this.motors[1].speed = 30;
+                this.motors[2].speed = 30;
+                this.motors[3].speed = 30;
             }
 
             // fwd + left
             if (XY === '-11') {
-                this.updateMotorProperties('speed', [100, 30, 100, 30]);
+                // this.updateMotorProperties('speed', [100, 30, 100, 30]);
+                this.motors[0].speed = 100;
+                this.motors[1].speed = 30;
+                this.motors[2].speed = 100;
+                this.motors[3].speed = 30;
             }
 
 
             // fwd + right
             if (XY === '11') {
-                this.updateMotorProperties('speed', [30, 100, 30, 100]);
+                // this.updateMotorProperties('speed', [30, 100, 30, 100]);
+                this.motors[0].speed = 30;
+                this.motors[1].speed = 100;
+                this.motors[2].speed = 30;
+                this.motors[3].speed = 100;
 
             }
             // back + left
 
             if (XY === '-1-1') {
-                this.updateMotorProperties('speed', [30, 100, 30, 100]);
+                // this.updateMotorProperties('speed', [30, 100, 30, 100]);
+                this.motors[0].speed = 30;
+                this.motors[1].speed = 100;
+                this.motors[2].speed = 30;
+                this.motors[3].speed = 100;
             }
 
             if (XY === '1-1') {
 
-                this.updateMotorProperties('speed', [100, 30, 100, 30]);
+                // this.updateMotorProperties('speed', [100, 30, 100, 30]);
+
+                this.motors[0].speed = 30;
+                this.motors[1].speed = 30;
+                this.motors[2].speed = 30;
+                this.motors[3].speed = 30;
 
             }
 
